@@ -17,7 +17,7 @@
   <meta name="description" content="大聪明与大明白">
   <meta name="author" content="hww">
   <meta name="keywords" content="前端">
-  <title>Hello World - 韩少有为</title>
+  <title>JS高级-正则表达式 - 韩少有为</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="JS高级-正则表达式">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-28 19:19" pubdate>
-        2021年1月28日 晚上
+      <time datetime="2021-02-09 22:42" pubdate>
+        2021年2月9日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      75 字
+      1.1k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      13
        分钟
     </span>
   
@@ -224,18 +224,71 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">JS高级-正则表达式</h1>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+              <p>正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在<br>JavaScript中，正则表达式也是对象。<br>正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户<br>名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。此外，<br>正则表达式还常用于过滤掉页面内容中的一些敏感词(替换)，或从字符串中获取我们想要<br>的特定部分(提取)等 。<br>在其他语言也会使用正则表达式，因此有很学习的必要。</p>
+<h2 id="JS高级-day04-正则表达式"><a href="#JS高级-day04-正则表达式" class="headerlink" title="JS高级 day04-正则表达式"></a>JS高级 day04-正则表达式</h2><h3 id="1-正则表达式概述"><a href="#1-正则表达式概述" class="headerlink" title="1.正则表达式概述"></a>1.正则表达式概述</h3><h4 id="1-1概念"><a href="#1-1概念" class="headerlink" title="1.1概念"></a>1.1概念</h4><p>正则表达式（Regular Expression）是用于匹配字符串中字符组合的模式，在数据类型中是属于对象</p>
+<h4 id="1-2作用及特点"><a href="#1-2作用及特点" class="headerlink" title="1.2作用及特点"></a>1.2作用及特点</h4><ul>
+<li><p>作用：正则表达式通常用来校验、查找、替换指定规则的字符文本</p>
+<ol>
+<li><p>验证表单，如：只能输入英文、字母、数字和下划线</p>
+<ol start="2">
+<li><p>过滤页面内容中的敏感词汇，或者对指定字符组合进行替换 </p>
+</li>
+<li><p>从字符串中提取我们想要的特定部分</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>特点：</p>
+<ol>
+<li><p>灵活性、逻辑性和功能性 （强大）</p>
+</li>
+<li><p>简单高效</p>
+</li>
+<li><p>可读性稍差，不便于记忆（一般复制相关的正则表达式，修改后即可使用）</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-正则表达式使用"><a href="#2-正则表达式使用" class="headerlink" title="2.正则表达式使用"></a>2.正则表达式使用</h3><h4 id="2-1创建方式"><a href="#2-1创建方式" class="headerlink" title="2.1创建方式"></a>2.1创建方式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">构造函数方式：<span class="hljs-keyword">var</span> regexp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-regexp">/abc/</span>)<br><br>字面量方式：<span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/123/</span><br></code></pre></td></tr></table></figure>
+<h4 id="2-2测试"><a href="#2-2测试" class="headerlink" title="2.2测试"></a>2.2测试</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;123&#x27;</span>))<span class="hljs-comment">//返回值是布尔值</span><br><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-number">123456</span>)); <span class="hljs-comment">// false 不包含123</span><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="3-正则表达式中特殊字符"><a href="#3-正则表达式中特殊字符" class="headerlink" title="3.正则表达式中特殊字符"></a>3.正则表达式中特殊字符</h3><p>特殊字符非常多，可以参考：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">MDN</a></p>
+<h4 id="3-1边界符（位置符）"><a href="#3-1边界符（位置符）" class="headerlink" title="3.1边界符（位置符）"></a>3.1边界符（位置符）</h4><p>主要用来匹配字符的开始和结束位置:</p>
+<p>   (1) ^: 用来匹配以…开头</p>
+<p>   (2) $: 用来匹配以…结尾</p>
+<p>注意：</p>
+<p>   (1) 不使用 ^ 和 $ 表示只要字符串中包含匹配的内容就返回 true, 可以多出其他任意字符</p>
+<p>   (2) ^ 和 $ 在一起配合使用，表示是精确匹配, 不能多出其他字符也不能少 (必须满足数量和类型都一致)</p>
+<h4 id="3-2字符类"><a href="#3-2字符类" class="headerlink" title="3.2字符类"></a>3.2字符类</h4><p>[xyz]  只要包含x,y,z中任意一个就满足条件</p>
+<p>[^xyz] 字符串中只要有一个不在中括号内的字符就满足规则</p>
+<p>[a-f] :a,b,c,d,e,f</p>
+<p>(xyz): 表示一个整体</p>
+<h4 id="3-3量词符"><a href="#3-3量词符" class="headerlink" title="3.3量词符"></a>3.3量词符</h4><p>*：表示前面的字符出现 0 次或多次, 即可有可无 ( &gt;= 0)</p>
+<p>+：表示前面的字符至少出现 1 次或多次, 即至少出现一次 ( &gt;= 0)</p>
+<p>？：表示前面的字符出现 0 次或 1 次, 要么不出现, 要么只出现 1 次 ( 0 || 1)</p>
+<p>{3}  {3,}  {3,6}：分别表示重复3次；3次及以上；3次到6次</p>
+<h4 id="3-4预定义类"><a href="#3-4预定义类" class="headerlink" title="3.4预定义类"></a>3.4预定义类</h4><p>\d：匹配 0~9 之间的任意一个数字，等价于 [0-9]</p>
+<p>\D: 匹配所有 0~9 之外的字符，非数字，等价于 [ ^0-9]</p>
+<p>\w: 匹配任意的字母、数字和下划线，等价于 [a-zA-Z0-9_]</p>
+<p>\W: 匹配任意的字母、数字和下划线之外的字符，等价于 [ ^0-9a-zA-Z_]</p>
+<p>\s: 匹配所有的空格（包括换行符，制表符，空格符等），等价于 [\t\r\n\v\f]</p>
+<p>\S：匹配所有的非空格符，等价于 [ ^\t\r\n\v\f]</p>
+<p>记忆：所有大写字符表示 “非”, 上述预定义类只表示单个字符</p>
+<h3 id="4-使用"><a href="#4-使用" class="headerlink" title="4.使用"></a>4.使用</h3><p>4.1 <a target="_blank" rel="noopener" href="https://c.runoob.com/front-end/854">菜鸟工具</a></p>
+<p>4.2 正则表达式查找和替换（replace，match）</p>
+<p>replace(reg, 替换后的字符) 可以替换字符串中的字符，参数可以是普通字符串，也可以是正则表达式</p>
+<p>指定匹配的模式：</p>
+<p>   （1）/正则表达式/g    全局匹配</p>
+<p>   （2）/正则表达式/i     忽略大小写进行匹配</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> str = <span class="hljs-string">&#x27;abC123abC678abc345c&#x27;</span><br><span class="hljs-comment">// 把所有的 c 替换成 a</span><br>str = str.replace(<span class="hljs-regexp">/c/gi</span>, <span class="hljs-string">&#x27;a&#x27;</span>) <span class="hljs-comment">//正则加了g可以全局替换 否则只能替换第一个</span><br><br><span class="hljs-comment">// match 方法可以配合正则表达式, 从字符串中找出所有匹配正则的字符</span><br><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/\d&#123;3&#125;/g</span><br><span class="hljs-keyword">var</span> res = str.match(reg)<br><span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">//返回数组</span><br><br><span class="hljs-comment">// 替换敏感词 (傻叉)</span><br><span class="hljs-keyword">var</span> ipt = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;input&#x27;</span>)<br>ipt.addEventListener(<span class="hljs-string">&#x27;blur&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    <span class="hljs-built_in">this</span>.value = <span class="hljs-built_in">this</span>.value.replace(<span class="hljs-regexp">/傻\s*叉|s\s*x/gi</span>, <span class="hljs-string">&#x27;**&#x27;</span>)<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="5-案例"><a href="#5-案例" class="headerlink" title="5.案例"></a>5.案例</h3><p>表单验证</p>
 
             </div>
             <hr>
@@ -245,7 +298,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a>
+                      <a class="hover-with-bg" href="/categories/JS%E7%AC%94%E8%AE%B0/">JS笔记</a>
                     
                   </div>
                 
@@ -253,9 +306,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
                     
-                      <a class="hover-with-bg" href="/tags/hello/">hello</a>
+                      <a class="hover-with-bg" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
                     
                   </div>
                 
@@ -268,15 +321,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/09/Javascript%E9%AB%98%E7%BA%A7-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80-day06-%E6%95%B0%E7%BB%84%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS高级-正则表达式</span>
+                        <span class="hidden-mobile">JS基础-数组和字符串相关方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/01/28/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
