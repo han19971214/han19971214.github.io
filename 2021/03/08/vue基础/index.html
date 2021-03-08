@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="大聪明与大明白">
+  <meta name="author" content="hww">
+  <meta name="keywords" content="前端">
+  <title>vue基础内容 - 韩少有为</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"han19971214.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>han19971214</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="vue基础内容">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-08 19:31" pubdate>
+        2021年3月8日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      760 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      10
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vue基础内容</h1>
+            
+            <div class="markdown-body">
+              <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><code class="hljs vim">	day01<br>		vue介绍<br>			认识vue<br>				特点： 易用、灵活、高效<br>				版本：<span class="hljs-number">2.6</span><br>				作者：尤雨溪<br>				兼容： IE8及以下不兼容<br>			使用<br>				<span class="hljs-number">1</span>、引入vue.js<br>					开发版本(development)<br>						警告、提示、没有压缩<br>					生产版本(production)<br>						部署上线时候用的，删除了警告、提示、压缩了代码<br>				<span class="hljs-number">2</span>、创建挂载节点标签<br>					不能是body或者html<br>				<span class="hljs-number">3</span>、实例化vue对象<br>					<span class="hljs-keyword">el</span><br>						挂载节点的选择器<br>					data<br>						模板中用到的所有数据<br>							&#123;&#123; data里面的变量 &#125;&#125;<br>							&#123;&#123; 表达式 &#125;&#125;<br>			MVVM<br>				M    model（data里面的数据）<br>				V  <span class="hljs-keyword">view</span>(视图，就是模板)<br>				VM (虚拟模型)<br>		vue指令<br>			指令是什么： 是自定义属性  <br>				&lt;标签 v-指令名=<span class="hljs-string">&quot;变量/表达式&quot;</span> /&gt;<br>			常用指令<br>				v-html<br>					渲染内容，可以编译html字符串<br>				v-text<br>					渲染内容<br>				v-cloak<br>					防止闪烁<br>				v-<span class="hljs-keyword">pre</span><br>					跳过编译<br>				v-once<br>					一次性绑定<br>				v-<span class="hljs-keyword">on</span><br>					事件绑定<br>				v-bind<br>					属性绑定<br>				v-model<br>					双向绑定<br>				v-<span class="hljs-keyword">if</span><br>					v-<span class="hljs-keyword">if</span><br>					v-<span class="hljs-keyword">else</span>-<span class="hljs-keyword">if</span><br>					v-<span class="hljs-keyword">else</span><br>				v-<span class="hljs-keyword">for</span><br>		vue事件<br>			绑定<br>				&lt;标签 v-<span class="hljs-keyword">on</span>:事件类型=<span class="hljs-string">&quot;事件函数&quot;</span> /&gt;<br>				&lt;标签 v-<span class="hljs-keyword">on</span>:事件类型=<span class="hljs-string">&quot;事件函数()&quot;</span> /&gt;<br>				&lt;标签 @事件类型=<span class="hljs-string">&quot;事件函数&quot;</span> /&gt;<br>				<span class="hljs-keyword">new</span> Vue(&#123;<br>   <span class="hljs-keyword">e</span><span class="hljs-variable">l:</span><span class="hljs-string">&quot;&quot;</span>,<br>  dat<span class="hljs-variable">a:</span>&#123;&#125;,<br>  method<span class="hljs-variable">s:</span>&#123;<br>    事件函数()&#123; ... &#125;<br>  &#125;<br>&#125;)<br>			传参<br>				&lt;标签 @事件类型=<span class="hljs-string">&quot;事件函数(实参)&quot;</span> /&gt;<br>				<span class="hljs-keyword">new</span> Vue(&#123;<br>   <span class="hljs-keyword">e</span><span class="hljs-variable">l:</span><span class="hljs-string">&quot;&quot;</span>,<br>  dat<span class="hljs-variable">a:</span>&#123;&#125;,<br>  method<span class="hljs-variable">s:</span>&#123;<br>    事件函数(形参)&#123; ... &#125;<br>  &#125;<br>&#125;)<br>			事件对象<br>				&lt;标签 @事件类型=<span class="hljs-string">&quot;事件函数&quot;</span> /&gt;<br>				&lt;标签 @事件类型=<span class="hljs-string">&quot;事件函数($event)&quot;</span> /&gt;<br>				<span class="hljs-keyword">new</span> Vue(&#123;<br>   <span class="hljs-keyword">e</span><span class="hljs-variable">l:</span><span class="hljs-string">&quot;&quot;</span>,<br>  dat<span class="hljs-variable">a:</span>&#123;&#125;,<br>  method<span class="hljs-variable">s:</span>&#123;<br>    事件函数(形参)&#123;  // 形参就是事件对象<br>           ...<br>   &#125;<br>  &#125;<br>&#125;)<br>			既传参又获取事件对象<br>				&lt;标签 @事件类型=<span class="hljs-string">&quot;事件函数($event,实参)&quot;</span> /&gt;<br>				<span class="hljs-keyword">new</span> Vue(&#123;<br>   <span class="hljs-keyword">e</span><span class="hljs-variable">l:</span><span class="hljs-string">&quot;&quot;</span>,<br>  dat<span class="hljs-variable">a:</span>&#123;&#125;,<br>  method<span class="hljs-variable">s:</span>&#123;<br>    事件函数(形参<span class="hljs-number">1</span>，形参<span class="hljs-number">2</span>)&#123;  // 形参<span class="hljs-number">1</span>就是事件对象<br>           ...<br>   &#125;<br>  &#125;<br>&#125;)<br>			事件简写<br>				&lt;标签 @事件类型=<span class="hljs-string">&quot;变量赋值操作&quot;</span> /&gt;<br>			事件修饰符<br>				修饰符<br>					&lt;标签 @事件类型.修饰符=<span class="hljs-string">&quot;事件函数&quot;</span> /&gt;<br>					修饰符内容<br>						.<span class="hljs-keyword">stop</span><br>						.prevent<br>						.self<br>						.capture<br>						.once<br>						....<br>				按键修饰符<br>					按键相关事件<br>						keydown<br>						keyup<br>						keypress<br>						<span class="hljs-built_in">input</span><br>					自定义按键修饰符<br>						Vue.config.keyCodes.修饰符名 = 按键码<br>		vue样式<br>			class<br>				对象<br>					&lt;标签 :class=<span class="hljs-string">&quot;&#123; class名1:变量1，class名2:变量2 &#125;&quot;</span> /&gt;<br>				数组<br>					&lt;标签 :class=<span class="hljs-string">&quot;[变量1，变量2,&#x27;class名1&#x27;,&#x27;class名2&#x27;]&quot;</span> /&gt;<br>				属性绑定<br>					&lt;标签 :class=<span class="hljs-string">&quot;条件 ？ &#x27;class名1&#x27;:&#x27;class名2&#x27; &quot;</span> /&gt;<br>			style<br>				对象<br>					&lt;标签 :style=<span class="hljs-string">&quot;&#123; css属性名名1:变量1，css属性名2:变量2 &#125;&quot;</span> /&gt;<br>				数组<br>					&lt;标签 :style=<span class="hljs-string">&quot;[变量1，变量2]&quot;</span> /&gt;<br>						变量<span class="hljs-number">1</span>:&#123; css属性名:css属性值 &#125;<br>						变量<span class="hljs-number">2</span>:&#123; css属性名:css属性值 &#125;<br>				属性绑定<br>					&lt;标签 style=<span class="hljs-string">&quot;font-size:20px;border-color:red&quot;</span> /&gt;<br>					&lt;标签 :style=<span class="hljs-string">&quot;`font-size:$&#123;a&#125;;border-color:$&#123;b&#125;`&quot;</span> /&gt;<br>						<span class="hljs-variable">a:</span><span class="hljs-string">&#x27;20px&#x27;</span><br>						<span class="hljs-variable">b:</span><span class="hljs-string">&#x27;red&#x27;</span><br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/27/jwt%E4%B8%8Esession%E7%9A%84%E8%AE%A4%E8%AF%81%E6%96%B9%E6%A1%88/">
+                        <span class="hidden-mobile">session 与 jwt 的认证方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
